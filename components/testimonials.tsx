@@ -8,7 +8,7 @@ const testimonials = [
     role: "CEO, TechStart Inc.",
   },
   {
-    quote: "The team proactive approach to financial planning has been instrumental in our company&apos;s growth strategy.",
+    quote: "The team's proactive approach to financial planning has been instrumental in our company's growth strategy.",
     author: "Michael Torres",
     role: "Founder, GreenVentures",
   },
@@ -32,16 +32,24 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.author} className="bg-card border-border">
-              <CardContent className="pt-8">
-                <Quote className="h-10 w-10 text-secondary/50 mb-4" />
-                <p className="text-card-foreground text-lg leading-relaxed mb-6">
+            <Card
+              key={testimonial.author}
+              className="bg-card border-border flex h-full min-h-0 flex-col"
+            >
+              <CardContent className="flex flex-1 flex-col gap-6 px-6 pt-6">
+                <Quote
+                  className="h-10 w-10 shrink-0 text-secondary/50"
+                  aria-hidden
+                />
+                <p className="min-h-0 flex-1 text-card-foreground text-lg leading-relaxed">
                   {testimonial.quote}
                 </p>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-card-foreground">{testimonial.author}</p>
+                <div className="shrink-0 border-t border-border pt-4">
+                  <p className="font-semibold text-card-foreground">
+                    {testimonial.author}
+                  </p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
               </CardContent>
